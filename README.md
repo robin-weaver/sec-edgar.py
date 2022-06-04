@@ -13,7 +13,7 @@ Start off by importing the base class from the main file and instantiating it.
 from sec-edgar-py import EdgarWrapper
 client = EdgarWrapper()
 ```
-Now you can use the methods from `client`.
+Now you can call all of the methods from `client`.
 
 ```client.get_company_filings(ticker_or_cik, form_types=None, amount=0)```
 Where:
