@@ -9,7 +9,7 @@ Still very much a WIP.
 ### Current Features
 
 Start off by importing the base class from the main file and instantiating it.
-```
+```py
 from sec-edgar-py import EdgarWrapper
 client = EdgarWrapper()
 ```
@@ -26,7 +26,7 @@ This method returns a list of dictionaries of the filings, with the most recent 
 So:
 `client.get_company_filings('abbv', form_types=['10-K', '10-Q'], amount=5)`
 will return:
-```
+```py
 [{'form': '10-Q',
   'filingDate': '2022-05-06',
   'URL': 'https://www.sec.gov/Archives/edgar/data/1551152/000155115222000017/abbv-20220331.htm'},
