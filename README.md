@@ -4,9 +4,10 @@ A basic (unofficial) Python API wrapper for the SEC's EDGAR system
 ## Documentation
 
 The aim of this project is to make the SEC's EDGAR system more accessible to python programmers, performing all of the "messy" work so the user can make simple requests and receive clean results.
-Still very much a WIP.
 
 ### Getting Started
+
+`pip install sec-edgar-py`
 
 Start off by importing the base class from the main file and instantiating it.
 ```py
