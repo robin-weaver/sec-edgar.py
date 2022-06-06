@@ -10,12 +10,13 @@ Still very much a WIP.
 
 Start off by importing the base class from the main file and instantiating it.
 ```py
-from sec-edgar-py import EdgarWrapper
+from sec_edgar_py import EdgarWrapper
 client = EdgarWrapper()
 ```
 Now you can call all of the methods from `client`.
 
 ```client.get_company_filings(ticker_or_cik, form_types=None, amount=0)```
+
 Where:
   * `ticker_or_cik` can be either the company ticker, or the CIK.
   * `form_types` if specified, must be a list of the types of filings you wish to retrieve.
