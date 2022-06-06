@@ -15,6 +15,8 @@ client = EdgarWrapper()
 ```
 Now you can call all of the methods from `client`.
 
+All methods return a `dict` with the requested info. Every dictionary returned will have a key called `response` to let you know whether the response was successful (`200`) or whether the requested information was not found (`404`).
+
 ### Filings
 ```py 
 client.get_company_filings(ticker_or_cik, form_types=None, amount=0)
