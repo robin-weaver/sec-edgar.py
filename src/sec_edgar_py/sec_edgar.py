@@ -5,13 +5,14 @@ from datetime import datetime
 
 class EdgarWrapper:
 	def __init__(self):
+		self.fake = Faker()
 		resp = requests.get('https://www.sec.gov/files/company_tickers.json', headers={'User-Agent': self.generate_random_user_agent()})
 		data: dict = resp.json()
 		self.ticker_cik = {}
 		for d in data.values():
 			if str(d['ticker']) not in self.ticker_cik.keys():
 				self.ticker_cik[d['ticker']] = str(d['cik_str'])
-		self.fake = Faker()
+
 
 	def generate_random_user_agent(self):
 		return f"{self.fake.first_name()} {self.fake.last_name()} {self.fake.email()}"
@@ -94,6 +95,10 @@ class EdgarWrapper:
 		return concept
 
 	def get_frames(self, taxonomy, tag, currency, year=None, quarter=None, instantaneous=True):
+		if year and year > datetime.utcnow().year:
+			raise ValueError("Year cannot be in the future")
+		if quarter and int(quarter) not in range(1, 5):
+			raise ValueError("Quarter must be either 1, 2, 3 or 4")
 		base_url = 'https://data.sec.gov/api/xbrl/frames'
 		year = year if year else datetime.utcnow().year
 		quarter = 'Q' + str(quarter) if quarter else ''
